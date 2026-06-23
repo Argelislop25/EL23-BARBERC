@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EL 23 — Barbería Premium</title>
+<meta name="description" content="La experiencia de barbería más exclusiva de la ciudad. Reserva tu cita en El 23." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ─── CURSOR ─── -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- ─── NAV ─── -->
+<nav id="nav">
+  <a href="#" class="nav-logo"><img src="/Imagenes/Adobe Express - file.png" alt="23 Barber" width="10%" >
+  <ul class="nav-links">
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#barbers">Barberos</a></li>
+    <li><a href="#score">Experience</a></li>
+    <li><a href="#testimonials">Clientes</a></li>
+    <li><a href="#" class="nav-cta" onclick="openBooking()">Reservar</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero" style="max-width:unset;padding:0;margin:0;">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Barbería Premium · Est. 2026 · Centro de la Ciudad</p>
+    <h1 class="hero-title">
+      <img src="/Imagenes/Adobe Express - file.png" alt="23 Barber" width="30%" >
+    </h1>
+    <p class="hero-sub">Tu imagen habla antes que tú.<br/>No es un corte. Es una experiencia.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="openBooking()">
+        Reserva tu experiencia
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </button>
+      <a href="#services" class="btn-ghost">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+        Ver servicios
+      </a>
+    </div>
+  </div>
+
+  
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Explorar</span>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <p class="section-label">Servicios</p>
+      <h2 class="section-title">CUIDANDO CADA<br/>DETALLE.</h2>
+    </div>
+    <p>Servicios diseñados para quienes entienden que la imagen no es vanidad — es estrategia. Selecciona tu experiencia.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <h3 class="service-name">CORTE REGULAR</h3>
+      <p class="service-desc">Nuestro servicio clásico ejecutado con máxima
+         precisión. Un corte personalizado y adaptado a sus facciones, manteniendo los 
+        contornos limpios y un acabado impecable, ideal para el día a día.</p>
+      <div class="service-meta">
+        <span class="service-price">$700</span>
+        <span class="service-duration">45 min</span>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">02</div>
+      <h3 class="service-name">COTE CLASICO CON FACIAL</h3>
+      <p class="service-desc">: Un servicio integral diseñado para el cuidado masculino
+        . Combina un corte de cabello de alta técnica con el perfilado
+         estructurado de la barba, complementado con un 
+        tratamiento facial express que limpia e hidrata la piel profundamente.</p>
+      <div class="service-meta">
+        <span class="service-price">$1000</span>
+        <span class="service-duration">40 min</span>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">03</div>
+      <h3 class="service-name">RECORTE PREMIUM</h3>
+      <p class="service-desc">Un servicio meticuloso que fusiona un corte de autor, un diseño de
+         barba milimétrico con toalla caliente y un tratamiento capilar avanzado.
+         Diseñado especialmente para quienes priorizan el cuidado de su imagen.</p>
+      <div class="service-meta">
+        <span class="service-price">$1500</span>
+        <span class="service-duration">90 min</span>
+      </div>
+    <!-- </div>
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <h3 class="service-name">TINTADO </h3>
+      <p class="service-desc">Técnicas avanzadas de coloración, highlights y grises estratégicos. Consulta de imagen incluida.</p>
+      <div class="service-meta">
+        <span class="service-price">Desde $65</span>
+        <span class="service-duration">60–90 min</span>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">05</div>
+      <h3 class="service-name">CORE CON DISENO</h3>
+      <p class="service-desc">Hidratación profunda, control del cuero cabelludo y fortalecimiento. Ciencia y lujo en un solo tratamiento.</p>
+      <div class="service-meta">
+        <span class="service-price">$42</span>
+        <span class="service-duration">50 min</span>
+      </div>
+    </div> -->
+    
+  <div class="service-cta">
+    <button class="btn-primary" onclick="openBooking()">
+      Reservar servicio
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </button>
+  </div>
+</section>
+
+<!-- ─── BARBERS ─── -->
+<div id="barbers" style="background:var(--carbon); padding: 120px 0; max-width:unset;">
+<section style="max-width:1400px; margin:0 auto; padding:0 60px;">
+  <div class="barbers-header reveal">
+    <p class="section-label">El equipo</p>
+    <h2 class="section-title">LOS ARTISTAS<br/>DETRÁS DE <br> DURAN 23.</h2>
+  </div>
+  <div class="barbers-grid">
+    <div class="barber-card reveal">
+      <div class="barber-placeholder">
+        <div class="barber-avatar">M</div>
+        <p style="font-size:12px;color:var(--steel);letter-spacing:2px;">MOSI DURAN </p>
+      </div>
+      <div class="barber-overlay">
+        <h3 class="barber-name">MOSI DURAN</h3>
+        <p class="barber-title">Master Barber</p>
+        <div class="barber-specialties">
+          <span class="tag">Fade</span>
+          <span class="tag">Tintado</span>
+          <span class="tag">Disenos</span>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="barber-card reveal reveal-delay-1">
+      <div class="barber-placeholder">
+        <div class="barber-avatar">D</div>
+        <p style="font-size:12px;color:var(--steel);letter-spacing:2px;">DANIEL REYES</p>
+      </div>
+      <div class="barber-overlay">
+        <h3 class="barber-name">DANIEL REYES</h3>
+        <p class="barber-title">Senior Stylist</p>
+        <div class="barber-specialties">
+          <span class="tag">Coloración</span>
+          <span class="tag">Diseños</span>
+          <span class="tag">Barba</span>
+        </div>
+      </div>
+    </div>
+    <div class="barber-card reveal reveal-delay-2">
+      <div class="barber-placeholder">
+        <div class="barber-avatar">C</div>
+        <p style="font-size:12px;color:var(--steel);letter-spacing:2px;">CARLOS VEGA</p>
+      </div>
+      <div class="barber-overlay">
+        <h3 class="barber-name">CARLOS VEGA</h3>
+        <p class="barber-title">Blade Specialist</p>
+        <div class="barber-specialties">
+          <span class="tag">Afeitado</span>
+          <span class="tag">Precisión</span>
+          <span class="tag">Ritual</span>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</section>
+</div>
+
+
+
+<!-- NUEVA SECCION DE CORTES YA REALIZADOS  -->
+
+<section id="gallery" class="work-gallery">
+  <div class="gallery-glow"></div>
+  
+  <div class="gallery-container">
+    <div class="gallery-header reveal">
+      <span class="section-label">Craftsmanship</span>
+      <h2 class="section-title">CORTES QUE<br>HABLAN POR<br>SÍ SOLOS.</h2>
+     <p class="gallery-p"> Precisión, textura y un estilo diseñado a medida. Galería real de nuestros mejores trabajos en la silla.</p>
+     </div>
+
+    
+<div class="gallery-grid">
+
+  <div class="gallery-item">
+    <div class="item-image-wrapper">
+      <img src="/Imagenes/COUPE 3.jpeg" alt="Buzz Cut with Design" loading="lazy">
+      <div class="item-overlay">
+        <div class="item-info">
+          <span class="item-category">Modern // Lineup</span>
+          <h3 class="item-title">LOW FADE</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <div class="item-image-wrapper">
+      <img src="/Imagenes/COUPE 1.jpeg" alt="Modern Mullet Texture" loading="lazy">
+      <div class="item-overlay">
+        <div class="item-info">
+          <span class="item-category">Street Style // Mullet</span>
+          <h3 class="item-title">DISEÑOS</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <div class="item-image-wrapper">
+      <img src="/Imagenes/COUPE 2.jpeg" alt="Descripción del corte" loading="lazy">
+      <div class="item-overlay">
+        <div class="item-info">
+          <span class="item-category">Estilo // Tipo</span>
+          <h3 class="item-title">LINEAS PERFECTAS</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <div class="item-image-wrapper">
+      <img src="/Imagenes/COUPE 5.jpeg" alt="Descripción del corte" loading="lazy">
+      <div class="item-overlay">
+        <div class="item-info">
+          <span class="item-category">Estilo // Tipo</span>
+          <h3 class="item-title">HIHG FADE</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section id="testimonials">
+  <div class="reveal">
+    <p class="section-label">Clientes</p>
+    <h2 class="section-title">LO QUE DICEN<br/>LOS QUE SABEN.</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial reveal">
+      <p class="t-text">El mejo servicio.</p>
+      <div class="t-author">
+        <div class="t-avatar">A</div>
+        <div>
+          <div class="t-name">KELVIN M.</div>
+          <div class="t-score">⭐⭐⭐⭐⭐</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial reveal reveal-delay-1">
+      <p class="t-text">El sistema de reservas es muy bueno y facilita la forma de conseguir una cita.</p>
+      <div class="t-author">
+        <div class="t-avatar">R</div>
+        <div>
+          <div class="t-name">Rodrigo M.</div>
+          <div class="t-score">⭐⭐⭐⭐⭐</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial reveal reveal-delay-2">
+      <p class="t-text">Mosi me salvó la vida antes de una reunión importante. Tenia un mes que no me recortaba y salí sintiéndome ejecutivo del año. El 23 es el mejor, punto.</p>
+      <div class="t-author">
+        <div class="t-avatar">J</div>
+        <div>
+          <div class="t-name">Javier C.</div>
+          <div class="t-score">⭐⭐⭐⭐⭐</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── INFO ─── -->
+<div id="info" style="background:var(--carbon); max-width:unset; padding:0 60px;">
+<div style="max-width:1400px; margin:0 auto;">
+  <div class="info-grid">
+    <div class="info-item reveal">
+      <div class="info-icon">📍</div>
+      <div class="info-label">Ubicación</div>
+      <div class="info-value">Av. MARIA TRINIDAD SANCHEZ <br>REPUBLICA DOMINICANA</div>
+      <div class="info-detail">Centro de la ciudad · 2do piso</div>
+    </div>
+    <div class="info-item reveal reveal-delay-1">
+      <div class="info-icon">🕐</div>
+      <div class="info-label">Horario</div>
+      <div class="info-value">MAR – DOM</div>
+      <div class="info-detail">9:00 AM – 8:00 PM</div>
+    </div>
+    <div class="info-item reveal reveal-delay-2">
+      <div class="info-icon">📞</div>
+      <div class="info-label">WhatsApp</div>
+      <div class="info-value">+1 (809) 405-0723</div>
+      <div class="info-detail">Respuesta en menos de 15 min</div>
+    </div>
+    <div class="info-item reveal reveal-delay-3">
+      <div class="info-icon">⭐</div>
+      <div class="info-label">Valoración</div>
+      <div class="info-value">4.9 / 5.0</div>
+      <div class="info-detail">+100 reseñas verificadas</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">DURAN <span>23</span></div>
+      <p class="footer-desc">Precisión, estilo y exclusividad. La barbería premium donde cada detalle marca la diferencia.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn">ig</a>
+        <a href="#" class="social-btn">tw</a>
+        <a href="#" class="social-btn">tk</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#">Corte Premium</a></li>
+        <li><a href="#">Ritual de Barba</a></li>
+        <li><a href="#">Ritual Completo</a></li>
+        <li><a href="#">Coloración</a></li>
+        <li><a href="#">Membresía VIP</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>El 2</h4>
+      <ul>
+        <li><a href="#">Nuestro equipo</a></li>
+        <li><a href="#">Experience Score</a></li>
+        <li><a href="#">Galería</a></li>
+        <li><a href="#">Tarjetas regalo</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Reservar</h4>
+      <ul>
+        <li><a href="#" onclick="openBooking()">Reserva online</a></li>
+        <li><a href="#">WhatsApp</a></li>
+        <li><a href="#">Mis citas</a></li>
+        <li><a href="#">Cancelar / Reagendar</a></li>
+        <li><a href="#">Política</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 El 23 Barbería Premium. Todos los derechos reservados.</p>
+    <div class="footer-legal">
+      <a href="#">Privacidad</a>
+      <a href="#">Términos</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── BOOKING MODAL ─── -->
+<div id="booking-overlay" onclick="handleOverlayClick(event)">
+  <div class="booking-modal">
+    <div class="booking-header">
+      <h2 class="booking-title">RESERVA TU CITA</h2>
+      <button class="booking-close" onclick="closeBooking()">×</button>
+    </div>
+
+    <!-- Steps nav -->
+    <div class="booking-steps">
+      <div class="booking-step active" id="step-nav-1">
+        <span class="step-num">1</span>
+        <span>Servicio</span>
+      </div>
+      <div class="booking-step" id="step-nav-2">
+        <span class="step-num">2</span>
+        <span>Barbero</span>
+      </div>
+      <div class="booking-step" id="step-nav-3">
+        <span class="step-num">3</span>
+        <span>Fecha</span>
+      </div>
+      <div class="booking-step" id="step-nav-4">
+        <span class="step-num">4</span>
+        <span>Datos</span>
+      </div>
+      <div class="booking-step" id="step-nav-5">
+        <span class="step-num">5</span>
+        <span>Confirmación</span>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="booking-body" id="booking-body">
+
+      <!-- Step 1: Service -->
+      <div class="step-panel active" id="panel-1">
+        <h3 class="step-title">¿Qué experiencia buscas?</h3>
+        <p class="step-subtitle">Selecciona uno de nuestros servicios para continuar.</p>
+        <div class="service-options">
+          <button class="service-option" onclick="selectService(this, 'Corte Premium', '$35', '45 min')">
+            <div class="so-name">✂️ Corte Premium</div>
+            <div class="so-meta"><span class="so-price">$35</span><span>45 min</span></div>
+          </button>
+          <button class="service-option" onclick="selectService(this, 'Ritual de Barba', '$28', '40 min')">
+            <div class="so-name">🪒 Ritual de Barba</div>
+            <div class="so-meta"><span class="so-price">$28</span><span>40 min</span></div>
+          </button>
+          <button class="service-option" onclick="selectService(this, 'Ritual Completo', '$58', '90 min')">
+            <div class="so-name">👑 Ritual Completo</div>
+            <div class="so-meta"><span class="so-price">$58</span><span>90 min</span></div>
+          </button>
+          <button class="service-option" onclick="selectService(this, 'Coloración', 'Desde $65', '60–90 min')">
+            <div class="so-name">🎨 Coloración</div>
+            <div class="so-meta"><span class="so-price">Desde $65</span><span>60–90 min</span></div>
+          </button>
+          <button class="service-option" onclick="selectService(this, 'Tratamiento Capilar', '$42', '50 min')">
+            <div class="so-name">💆 Tratamiento Capilar</div>
+            <div class="so-meta"><span class="so-price">$42</span><span>50 min</span></div>
+          </button>
+          <button class="service-option" onclick="selectService(this, 'Membresía VIP', '$120/mes', 'Ilimitado')">
+            <div class="so-name">💎 Membresía VIP</div>
+            <div class="so-meta"><span class="so-price">$120/mes</span><span>Exclusivo</span></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Barber -->
+      <div class="step-panel" id="panel-2">
+        <h3 class="step-title">Elige a tu artista</h3>
+        <p class="step-subtitle">Cada barbero tiene su especialidad. Selecciona el tuyo.</p>
+        <div class="barber-options">
+          <button class="barber-option" onclick="selectBarber(this, 'Miguel Torres')">
+            <div class="bo-avatar">M</div>
+            <div class="bo-name">Miguel Torres</div>
+            <div class="bo-title">Master Barber</div>
+          </button>
+          <button class="barber-option" onclick="selectBarber(this, 'Daniel Reyes')">
+            <div class="bo-avatar">D</div>
+            <div class="bo-name">Daniel Reyes</div>
+            <div class="bo-title">Senior Stylist</div>
+          </button>
+          <button class="barber-option" onclick="selectBarber(this, 'Carlos Vega')">
+            <div class="bo-avatar">C</div>
+            <div class="bo-name">Carlos Vega</div>
+            <div class="bo-title">Blade Specialist</div>
+          </button>
+          <button class="barber-option" onclick="selectBarber(this, 'Sin preferencia')">
+            <div class="bo-avatar" style="font-size:18px;">🎲</div>
+            <div class="bo-name">Sin preferencia</div>
+            <div class="bo-title">Próximo disponible</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: Date/Time -->
+      <div class="step-panel" id="panel-3">
+        <h3 class="step-title">¿Cuándo te vemos?</h3>
+        <p class="step-subtitle">Selecciona fecha y horario disponible.</p>
+        <div class="datetime-grid">
+          <div class="calendar-mini">
+            <div class="cal-header">
+              <button class="cal-nav" onclick="prevMonth()">‹</button>
+              <span class="cal-month" id="cal-month-label">Junio 2025</span>
+              <button class="cal-nav" onclick="nextMonth()">›</button>
+            </div>
+            <div class="cal-days-header">
+              <div class="cal-day-name">L</div>
+              <div class="cal-day-name">M</div>
+              <div class="cal-day-name">M</div>
+              <div class="cal-day-name">J</div>
+              <div class="cal-day-name">V</div>
+              <div class="cal-day-name">S</div>
+              <div class="cal-day-name">D</div>
+            </div>
+            <div class="cal-days" id="cal-days"></div>
+          </div>
+          <div class="time-slots">
+            <div class="time-slots-title">Horarios disponibles</div>
+            <div class="slots-grid">
+              <div class="slot available" onclick="selectSlot(this, '9:00 AM')">9:00 AM</div>
+              <div class="slot available" onclick="selectSlot(this, '9:45 AM')">9:45 AM</div>
+              <div class="slot booked">10:30 AM</div>
+              <div class="slot booked">11:15 AM</div>
+              <div class="slot available" onclick="selectSlot(this, '12:00 PM')">12:00 PM</div>
+              <div class="slot available" onclick="selectSlot(this, '12:45 PM')">12:45 PM</div>
+              <div class="slot booked">1:30 PM</div>
+              <div class="slot available" onclick="selectSlot(this, '2:15 PM')">2:15 PM</div>
+              <div class="slot available" onclick="selectSlot(this, '3:00 PM')">3:00 PM</div>
+              <div class="slot booked">3:45 PM</div>
+              <div class="slot available" onclick="selectSlot(this, '4:30 PM')">4:30 PM</div>
+              <div class="slot available" onclick="selectSlot(this, '5:15 PM')">5:15 PM</div>
+              <div class="slot available" onclick="selectSlot(this, '6:00 PM')">6:00 PM</div>
+              <div class="slot booked">6:45 PM</div>
+              <div class="slot available" onclick="selectSlot(this, '7:30 PM')">7:30 PM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Client info -->
+      <div class="step-panel" id="panel-4">
+        <h3 class="step-title">Tus datos</h3>
+        <p class="step-subtitle">Información de contacto para tu reserva y recordatorio.</p>
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-input" id="f-name" placeholder="Tu nombre" />
+          </div>
+          <div class="form-field">
+            <label class="form-label">Apellido</label>
+            <input type="text" class="form-input" id="f-last" placeholder="Tu apellido" />
+          </div>
+          <div class="form-field">
+            <label class="form-label">Teléfono / WhatsApp</label>
+            <input type="tel" class="form-input" id="f-phone" placeholder="+1 (555) 000-0000" />
+          </div>
+          <div class="form-field">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" id="f-email" placeholder="tu@email.com" />
+          </div>
+          <div class="form-field full">
+            <label class="form-label">Nota especial (opcional)</label>
+            <input type="text" class="form-input" id="f-note" placeholder="Ej: Quiero fade alto, misma referencia de la última vez..." />
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: Confirmation -->
+      <div class="step-panel" id="panel-5">
+        <h3 class="step-title">Confirma tu reserva</h3>
+        <p class="step-subtitle">Revisa los detalles antes de confirmar tu experiencia.</p>
+        <div class="confirm-summary">
+          <div class="confirm-row">
+            <span class="confirm-key">Servicio</span>
+            <span class="confirm-val" id="c-service">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-key">Barbero</span>
+            <span class="confirm-val" id="c-barber">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-key">Fecha</span>
+            <span class="confirm-val" id="c-date">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-key">Hora</span>
+            <span class="confirm-val" id="c-time">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-key">Cliente</span>
+            <span class="confirm-val" id="c-client">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-key">Duración estimada</span>
+            <span class="confirm-val" id="c-duration">—</span>
+          </div>
+          <div class="confirm-row" style="padding-top:20px; margin-top:8px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <span class="confirm-key" style="font-size:16px;">Total</span>
+            <span class="confirm-val confirm-total" id="c-total">—</span>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--steel);line-height:1.7;">Al confirmar, recibirás un mensaje de WhatsApp con los detalles de tu cita. Cancelaciones con mínimo 3 horas de anticipación.</p>
+      </div>
+
+    </div><!-- /booking-body -->
+
+    <!-- Success state -->
+    <div class="booking-success" id="booking-success">
+      <div class="success-icon">✓</div>
+      <h2 class="success-title">¡CITA CONFIRMADA!</h2>
+      <p class="success-sub">Te enviamos los detalles por WhatsApp. Nos vemos pronto en El 23.</p>
+      <button class="btn-primary" onclick="closeBooking()" style="margin-top:8px;">
+        Volver al inicio
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Footer nav -->
+    <div class="booking-footer" id="booking-footer">
+      <div class="booking-summary-mini" id="booking-mini-summary">
+        <strong id="mini-service">Elige tu servicio</strong>
+        <span id="mini-meta">Paso 1 de 5</span>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <button class="btn-ghost" id="btn-back" onclick="prevStep()" style="display:none;">← Atrás</button>
+        <button class="btn-primary" id="btn-next" onclick="nextStep()">
+          Continuar
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ─── CURSOR ───
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+});
+
+function animateRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  cursorRing.style.left = rx + 'px';
+  cursorRing.style.top = ry + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a, button, .service-card, .barber-card, .service-option, .barber-option, .slot, .cal-day').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
+    cursorRing.style.width = '64px';
+    cursorRing.style.height = '64px';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+    cursorRing.style.width = '40px';
+    cursorRing.style.height = '40px';
+  });
+});
+
+// ─── NAV SCROLL ───
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ─── SCROLL REVEAL ───
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.1 });
+revealEls.forEach(el => io.observe(el));
+
+// ─── BOOKING STATE ───
+let currentStep = 1;
+const totalSteps = 5;
+const booking = { service: '', price: '', duration: '', barber: '', date: '', time: '', name: '', email: '' };
+
+function openBooking() {
+  document.getElementById('booking-overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeBooking() {
+  document.getElementById('booking-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+  // Reset after close
+  setTimeout(() => {
+    currentStep = 1;
+    Object.keys(booking).forEach(k => booking[k] = '');
+    document.querySelectorAll('.step-panel').forEach((p,i) => p.classList.toggle('active', i===0));
+    document.querySelectorAll('.booking-step').forEach((s,i) => {
+      s.classList.toggle('active', i===0);
+      s.classList.remove('done');
+    });
+    document.getElementById('booking-body').style.display = '';
+    document.getElementById('booking-success').classList.remove('active');
+    document.getElementById('booking-footer').style.display = '';
+    document.getElementById('btn-back').style.display = 'none';
+    updateMiniSummary();
+    // unselect all options
+    document.querySelectorAll('.service-option, .barber-option, .slot, .cal-day').forEach(el => el.classList.remove('selected'));
+  }, 400);
+}
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('booking-overlay')) closeBooking();
+}
+
+function goToStep(n) {
+  currentStep = n;
+  document.querySelectorAll('.step-panel').forEach((p, i) => p.classList.toggle('active', i === n - 1));
+  document.querySelectorAll('.booking-step').forEach((s, i) => {
+    s.classList.remove('active', 'done');
+    if (i === n - 1) s.classList.add('active');
+    else if (i < n - 1) s.classList.add('done');
+  });
+  document.getElementById('btn-back').style.display = n > 1 ? 'inline-flex' : 'none';
+  document.getElementById('btn-next').textContent = n === totalSteps ? 'Confirmar' : 'Continuar';
+  if (n === totalSteps) {
+    // populate summary
+    document.getElementById('c-service').textContent = booking.service || '—';
+    document.getElementById('c-barber').textContent = booking.barber || '—';
+    document.getElementById('c-date').textContent = booking.date || '—';
+    document.getElementById('c-time').textContent = booking.time || '—';
+    document.getElementById('c-total').textContent = booking.price || '—';
+    document.getElementById('c-duration').textContent = booking.duration || '—';
+    const name = document.getElementById('f-name').value + ' ' + document.getElementById('f-last').value;
+    document.getElementById('c-client').textContent = name.trim() || '—';
+    // rebuild next button with SVG
+    const btn = document.getElementById('btn-next');
+    btn.innerHTML = 'Confirmar <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
+  }
+  updateMiniSummary();
+  document.querySelector('.booking-body').scrollTop = 0;
+}
+
+function nextStep() {
+  if (currentStep === totalSteps) {
+    // Submit
+    document.getElementById('booking-body').style.display = 'none';
+    document.getElementById('booking-footer').style.display = 'none';
+    document.getElementById('booking-success').classList.add('active');
+    return;
+  }
+  if (currentStep < totalSteps) goToStep(currentStep + 1);
+}
+function prevStep() {
+  if (currentStep > 1) goToStep(currentStep - 1);
+}
+
+function updateMiniSummary() {
+  const svc = document.getElementById('mini-service');
+  const meta = document.getElementById('mini-meta');
+  svc.textContent = booking.service || 'Elige tu servicio';
+  meta.textContent = `Paso ${currentStep} de ${totalSteps}` + (booking.price ? ` · ${booking.price}` : '');
+}
+
+// Service selection
+function selectService(btn, name, price, duration) {
+  document.querySelectorAll('.service-option').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  booking.service = name; booking.price = price; booking.duration = duration;
+  updateMiniSummary();
+  setTimeout(() => goToStep(2), 300);
+}
+
+// Barber selection
+function selectBarber(btn, name) {
+  document.querySelectorAll('.barber-option').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  booking.barber = name;
+  updateMiniSummary();
+  setTimeout(() => goToStep(3), 300);
+}
+
+// Slot selection
+function selectSlot(el, time) {
+  document.querySelectorAll('.slot.available').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+  booking.time = time;
+  updateMiniSummary();
+}
+
+// ─── MINI CALENDAR ───
+let calDate = new Date(2025, 5, 1); // June 2025
+
+function renderCal() {
+  const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  document.getElementById('cal-month-label').textContent = `${months[calDate.getMonth()]} ${calDate.getFullYear()}`;
+  const grid = document.getElementById('cal-days');
+  grid.innerHTML = '';
+  const firstDay = new Date(calDate.getFullYear(), calDate.getMonth(), 1).getDay();
+  const offset = firstDay === 0 ? 6 : firstDay - 1; // Mon-based
+  const daysInMonth = new Date(calDate.getFullYear(), calDate.getMonth() + 1, 0).getDate();
+  const today = new Date();
+  for (let i = 0; i < offset; i++) {
+    const d = document.createElement('div');
+    d.className = 'cal-day empty';
+    grid.appendChild(d);
+  }
+  for (let d = 1; d <= daysInMonth; d++) {
+    const el = document.createElement('div');
+    const dt = new Date(calDate.getFullYear(), calDate.getMonth(), d);
+    const isPast = dt < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const isSun = dt.getDay() === 0;
+    if (isPast || isSun) {
+      el.className = 'cal-day';
+      el.style.opacity = '0.2';
+      el.textContent = d;
+    } else {
+      el.className = 'cal-day available';
+      if (dt.toDateString() === today.toDateString()) el.classList.add('today');
+      el.textContent = d;
+      el.addEventListener('click', () => {
+        document.querySelectorAll('.cal-day').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+        booking.date = `${d} ${months[calDate.getMonth()]} ${calDate.getFullYear()}`;
+        updateMiniSummary();
+      });
+    }
+    grid.appendChild(el);
+  }
+}
+
+function prevMonth() {
+  calDate = new Date(calDate.getFullYear(), calDate.getMonth() - 1, 1);
+  renderCal();
+}
+function nextMonth() {
+  calDate = new Date(calDate.getFullYear(), calDate.getMonth() + 1, 1);
+  renderCal();
+}
+
+renderCal();
+</script>
+</body>
+</html>
