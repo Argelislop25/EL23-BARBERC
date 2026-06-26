@@ -431,29 +431,29 @@
         <h3 class="step-title">¿Qué experiencia buscas?</h3>
         <p class="step-subtitle">Selecciona uno de nuestros servicios para continuar.</p>
         <div class="service-options">
-          <button class="service-option" onclick="selectService(this, 'Corte Premium', '$35', '45 min')">
-            <div class="so-name">✂️ Corte Premium</div>
-            <div class="so-meta"><span class="so-price">$35</span><span>45 min</span></div>
+          <button class="service-option" onclick="selectService(this, 'Corte Premium', '$700', '45 min')">
+            <div class="so-name">CORTE REGULAR</div>
+            <div class="so-meta"><span class="so-price">$700</span><span>45 min</span></div>
           </button>
-          <button class="service-option" onclick="selectService(this, 'Ritual de Barba', '$28', '40 min')">
-            <div class="so-name">🪒 Ritual de Barba</div>
-            <div class="so-meta"><span class="so-price">$28</span><span>40 min</span></div>
+          <button class="service-option" onclick="selectService(this, 'Ritual de Barba', '$1000', '40 min')">
+            <div class="so-name">COTE CLASICO CON FACIAL</div>
+            <div class="so-meta"><span class="so-price">$1000</span><span>40 min</span></div>
           </button>
-          <button class="service-option" onclick="selectService(this, 'Ritual Completo', '$58', '90 min')">
-            <div class="so-name">👑 Ritual Completo</div>
-            <div class="so-meta"><span class="so-price">$58</span><span>90 min</span></div>
+          <button class="service-option" onclick="selectService(this, 'Ritual Completo', '$1500', '90 min')">
+            <div class="so-name">RECORTE PREMIUM</div>
+            <div class="so-meta"><span class="so-price">$1500</span><span>90 min</span></div>
           </button>
-          <button class="service-option" onclick="selectService(this, 'Coloración', 'Desde $65', '60–90 min')">
-            <div class="so-name">🎨 Coloración</div>
-            <div class="so-meta"><span class="so-price">Desde $65</span><span>60–90 min</span></div>
+          <button class="service-option" onclick="selectService(this, 'Coloración', 'Desde $00', '60–90 min')">
+            <div class="so-name">🎨</div>
+            <div class="so-meta"><span class="so-price">Desde $0</span><span>60–90 min</span></div>
           </button>
-          <button class="service-option" onclick="selectService(this, 'Tratamiento Capilar', '$42', '50 min')">
-            <div class="so-name">💆 Tratamiento Capilar</div>
-            <div class="so-meta"><span class="so-price">$42</span><span>50 min</span></div>
+          <button class="service-option" onclick="selectService(this, 'Tratamiento Capilar', '$00', '50 min')">
+            <div class="so-name">💆</div>
+            <div class="so-meta"><span class="so-price">$0</span><span>50 min</span></div>
           </button>
-          <button class="service-option" onclick="selectService(this, 'Membresía VIP', '$120/mes', 'Ilimitado')">
-            <div class="so-name">💎 Membresía VIP</div>
-            <div class="so-meta"><span class="so-price">$120/mes</span><span>Exclusivo</span></div>
+          <button class="service-option" onclick="selectService(this, 'Membresía VIP', '$00/mes', 'Ilimitado')">
+            <div class="so-name">💎</div>
+            <div class="so-meta"><span class="so-price">$0/mes</span><span>Exclusivo</span></div>
           </button>
         </div>
       </div>
@@ -463,22 +463,22 @@
         <h3 class="step-title">Elige a tu artista</h3>
         <p class="step-subtitle">Cada barbero tiene su especialidad. Selecciona el tuyo.</p>
         <div class="barber-options">
-          <button class="barber-option" onclick="selectBarber(this, 'Miguel Torres')">
+          <button class="barber-option" onclick="selectBarber(this, 'Mosi Duran')">
             <div class="bo-avatar">M</div>
-            <div class="bo-name">Miguel Torres</div>
+            <div class="bo-name">Mosi Duran</div>
             <div class="bo-title">Master Barber</div>
           </button>
-          <button class="barber-option" onclick="selectBarber(this, 'Daniel Reyes')">
-            <div class="bo-avatar">D</div>
-            <div class="bo-name">Daniel Reyes</div>
-            <div class="bo-title">Senior Stylist</div>
+          <button class="barber-option" >
+            <div class="bo-avatar">🎲</div>
+            <div class="bo-name">Sin preferencia</div>
+            <div class="bo-title">Próximo disponible</div>
           </button>
-          <button class="barber-option" onclick="selectBarber(this, 'Carlos Vega')">
-            <div class="bo-avatar">C</div>
-            <div class="bo-name">Carlos Vega</div>
-            <div class="bo-title">Blade Specialist</div>
+          <button class="barber-option"">
+            <div class="bo-avatar">🎲</div>
+            <div class="bo-name">Sin preferencia</div>
+            <div class="bo-title">Próximo disponible</div>
           </button>
-          <button class="barber-option" onclick="selectBarber(this, 'Sin preferencia')">
+          <button class="barber-option" ">
             <div class="bo-avatar" style="font-size:18px;">🎲</div>
             <div class="bo-name">Sin preferencia</div>
             <div class="bo-title">Próximo disponible</div>
@@ -494,7 +494,7 @@
           <div class="calendar-mini">
             <div class="cal-header">
               <button class="cal-nav" onclick="prevMonth()">‹</button>
-              <span class="cal-month" id="cal-month-label">Junio 2025</span>
+              <span class="cal-month" id="cal-month-label">Cargando...</span>
               <button class="cal-nav" onclick="nextMonth()">›</button>
             </div>
             <div class="cal-days-header">
@@ -513,18 +513,18 @@
             <div class="slots-grid">
               <div class="slot available" onclick="selectSlot(this, '9:00 AM')">9:00 AM</div>
               <div class="slot available" onclick="selectSlot(this, '9:45 AM')">9:45 AM</div>
-              <div class="slot booked">10:30 AM</div>
-              <div class="slot booked">11:15 AM</div>
+              <div class="slot available" onclick="selectSlot(this, '10:30 AM')">10:30 AM</div>
+              <div class="slot available" onclick="selectSlot(this, '11:15 AM')">11:15 AM</div>
               <div class="slot available" onclick="selectSlot(this, '12:00 PM')">12:00 PM</div>
               <div class="slot available" onclick="selectSlot(this, '12:45 PM')">12:45 PM</div>
-              <div class="slot booked">1:30 PM</div>
+              <div class="slot available" onclick="selectSlot(this, '1:30 PM')">1:30 PM</div>
               <div class="slot available" onclick="selectSlot(this, '2:15 PM')">2:15 PM</div>
               <div class="slot available" onclick="selectSlot(this, '3:00 PM')">3:00 PM</div>
-              <div class="slot booked">3:45 PM</div>
+              <div class="slot available" onclick="selectSlot(this, '3:45 PM')">3:45 PM</div>
               <div class="slot available" onclick="selectSlot(this, '4:30 PM')">4:30 PM</div>
               <div class="slot available" onclick="selectSlot(this, '5:15 PM')">5:15 PM</div>
               <div class="slot available" onclick="selectSlot(this, '6:00 PM')">6:00 PM</div>
-              <div class="slot booked">6:45 PM</div>
+              <div class="slot available" onclick="selectSlot(this, '6:45 PM')">6:45 PM</div>
               <div class="slot available" onclick="selectSlot(this, '7:30 PM')">7:30 PM</div>
             </div>
           </div>
@@ -631,7 +631,302 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
+// ─── CONFIGURACIÓN DE SUPABASE ───
+// Reemplaza estas dos cadenas con tus credenciales reales de Supabase:
+const SUPABASE_URL = "https://bncputlyvmgcsudyolwt.supabase.co"; 
+const SUPABASE_ANON_KEY = "sb_publishable_K5CuUAe9H6JirCgdq2pWiw_L6AKe9at";
+
+const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// ─── CURSOR ───
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+});
+
+function animateRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  cursorRing.style.left = rx + 'px';
+  cursorRing.style.top = ry + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a, button, .service-card, .barber-card, .service-option, .barber-option, .slot, .cal-day').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
+    cursorRing.style.width = '64px';
+    cursorRing.style.height = '64px';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+    cursorRing.style.width = '40px';
+    cursorRing.style.height = '40px';
+  });
+});
+
+// ─── NAV SCROLL ───
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ─── SCROLL REVEAL ───
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.1 });
+revealEls.forEach(el => io.observe(el));
+
+// ─── BOOKING STATE ───
+let currentStep = 1;
+const totalSteps = 5;
+const booking = { service: '', price: '', duration: '', barber: '', date: '', time: '', name: '', email: '' };
+
+function openBooking() {
+  document.getElementById('booking-overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeBooking() {
+  document.getElementById('booking-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+  // Reset after close
+  setTimeout(() => {
+    currentStep = 1;
+    Object.keys(booking).forEach(k => booking[k] = '');
+    document.querySelectorAll('.step-panel').forEach((p,i) => p.classList.toggle('active', i===0));
+    document.querySelectorAll('.booking-step').forEach((s,i) => {
+      s.classList.toggle('active', i===0);
+      s.classList.remove('done');
+    });
+    document.getElementById('booking-body').style.display = '';
+    document.getElementById('booking-success').classList.remove('active');
+    document.getElementById('booking-footer').style.display = '';
+    document.getElementById('btn-back').style.display = 'none';
+    updateMiniSummary();
+    // unselect all options
+    document.querySelectorAll('.service-option, .barber-option, .slot, .cal-day').forEach(el => el.classList.remove('selected'));
+  }, 400);
+}
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('booking-overlay')) closeBooking();
+}
+
+function goToStep(n) {
+  currentStep = n;
+  document.querySelectorAll('.step-panel').forEach((p, i) => p.classList.toggle('active', i === n - 1));
+  document.querySelectorAll('.booking-step').forEach((s, i) => {
+    s.classList.remove('active', 'done');
+    if (i === n - 1) s.classList.add('active');
+    else if (i < n - 1) s.classList.add('done');
+  });
+  document.getElementById('btn-back').style.display = n > 1 ? 'inline-flex' : 'none';
+  document.getElementById('btn-next').textContent = n === totalSteps ? 'Confirmar' : 'Continuar';
+  if (n === totalSteps) {
+    // populate summary
+    document.getElementById('c-service').textContent = booking.service || '—';
+    document.getElementById('c-barber').textContent = booking.barber || '—';
+    document.getElementById('c-date').textContent = booking.date || '—';
+    document.getElementById('c-time').textContent = booking.time || '—';
+    document.getElementById('c-total').textContent = booking.price || '—';
+    document.getElementById('c-duration').textContent = booking.duration || '—';
+    const name = document.getElementById('f-name').value + ' ' + document.getElementById('f-last').value;
+    document.getElementById('c-client').textContent = name.trim() || '—';
+    // rebuild next button with SVG
+    const btn = document.getElementById('btn-next');
+    btn.innerHTML = 'Confirmar <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
+  }
+  updateMiniSummary();
+  document.querySelector('.booking-body').scrollTop = 0;
+}
+
+// ─── FUNCIÓN INTEGRADA CON SUPABASE ───
+async function nextStep() {
+  if (currentStep === totalSteps) {
+    // Capturamos el nombre completo de tus inputs actuales antes de mandar al backend
+    const nombreCompleto = (document.getElementById('f-name').value + ' ' + document.getElementById('f-last').value).trim();
+
+    // Insertar los datos de forma asíncrona directamente a la tabla 'Reservas' de Supabase
+    const { data, error } = await _supabase
+      .from('Reservas') 
+      .insert([
+        { 
+          Cliente_nombre: nombreCompleto, 
+          servicio: booking.service, 
+          fecha: booking.date, 
+          hora: booking.time 
+        }
+      ]);
+
+    if (error) {
+      console.error("Error al guardar la cita:", error);
+      alert("Hubo un problema guardando tu reserva. Intenta de nuevo.");
+      return; 
+    }
+
+    // Si todo sale bien, ejecutamos tu animación visual de éxito original
+    document.getElementById('booking-body').style.display = 'none';
+    document.getElementById('booking-footer').style.display = 'none';
+    document.getElementById('booking-success').classList.add('active');
+    return;
+  }
+  if (currentStep < totalSteps) goToStep(currentStep + 1);
+}
+
+function prevStep() {
+  if (currentStep > 1) goToStep(currentStep - 1);
+}
+
+function updateMiniSummary() {
+  const svc = document.getElementById('mini-service');
+  const meta = document.getElementById('mini-meta');
+  svc.textContent = booking.service || 'Elige tu servicio';
+  meta.textContent = `Paso ${currentStep} de ${totalSteps}` + (booking.price ? ` · ${booking.price}` : '');
+}
+
+// Service selection
+function selectService(btn, name, price, duration) {
+  document.querySelectorAll('.service-option').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  booking.service = name; booking.price = price; booking.duration = duration;
+  updateMiniSummary();
+  setTimeout(() => goToStep(2), 300);
+}
+
+// Barber selection
+function selectBarber(btn, name) {
+  document.querySelectorAll('.barber-option').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  booking.barber = name;
+  updateMiniSummary();
+  setTimeout(() => goToStep(3), 300);
+}
+
+// Slot selection
+function selectSlot(el, time) {
+  document.querySelectorAll('.slot.available').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+  booking.time = time;
+  updateMiniSummary();
+}
+
+// ─── MINI CALENDAR ───
+let calDate = new Date();
+
+function renderCal() {
+  const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  document.getElementById('cal-month-label').textContent = `${months[calDate.getMonth()]} ${calDate.getFullYear()}`;
+  const grid = document.getElementById('cal-days');
+  grid.innerHTML = '';
+  const firstDay = new Date(calDate.getFullYear(), calDate.getMonth(), 1).getDay();
+  const offset = firstDay === 0 ? 6 : firstDay - 1; // Mon-based
+  const daysInMonth = new Date(calDate.getFullYear(), calDate.getMonth() + 1, 0).getDate();
+  const today = new Date();
+  for (let i = 0; i < offset; i++) {
+    const d = document.createElement('div');
+    d.className = 'cal-day empty';
+    grid.appendChild(d);
+  }
+  for (let d = 1; d <= daysInMonth; d++) {
+    const el = document.createElement('div');
+    const dt = new Date(calDate.getFullYear(), calDate.getMonth(), d);
+    const isPast = dt < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const isSun = dt.getDay() === 0;
+    if (isPast || isSun) {
+      el.className = 'cal-day';
+      el.style.opacity = '0.2';
+      el.textContent = d;
+    } else {
+      el.className = 'cal-day available';
+      if (dt.toDateString() === today.toDateString()) el.classList.add('today');
+      el.textContent = d;
+      el.addEventListener('click', () => {
+        document.querySelectorAll('.cal-day').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+        booking.date = `${d} ${months[calDate.getMonth()]} ${calDate.getFullYear()}`;
+        updateMiniSummary();
+      });
+    }
+    grid.appendChild(el);
+  }
+}
+
+function prevMonth() {
+  calDate = new Date(calDate.getFullYear(), calDate.getMonth() - 1, 1);
+  renderCal();
+}
+function nextMonth() {
+  calDate = new Date(calDate.getFullYear(), calDate.getMonth() + 1, 1);
+  renderCal();
+}
+
+renderCal();
+
+
+//---NUEVA FUNCIONES ANANADIDAS---//
+
+async function checkAvailableSlots(selectedDate) {
+  // 1. Buscamos todos los bloques dentro del contenedor slots-grid
+  const slots = document.querySelectorAll('.slots-grid .slot');
+  
+  // 2. Limpiamos cualquier estado previo antes de consultar
+  slots.forEach(slot => {
+    slot.className = 'slot available';
+    const timeText = slot.textContent.trim();
+    slot.setAttribute('onclick', `selectSlot(this, '${timeText}')`);
+  });
+
+  // 3. Consultamos a Supabase qué horarios ya están ocupados para la fecha seleccionada
+  const { data: ocupados, error } = await _supabase
+    .from('Reservas')
+    .select('hora')
+    .eq('fecha', selectedDate);
+
+  if (error) {
+    console.error("Error consultando disponibilidad:", error);
+    return;
+  }
+
+  // 4. Si hay citas registradas, desactivamos únicamente los bloques correspondientes
+  if (ocupados && ocupados.length > 0) {
+    const horasOcupadas = ocupados.map(reserva => reserva.hora.trim());
+
+    slots.forEach(slot => {
+      const horaBloque = slot.textContent.trim();
+      if (horasOcupadas.includes(horaBloque)) {
+        slot.className = 'slot booked'; // Cambia el estilo visual a desactivado
+        slot.removeAttribute('onclick'); // Remueve la interacción para evitar clics
+      }
+    });
+  }
+}
+
+checkAvailableSlots(booking.date);
+
+
+</script>
+
+<!-- <script>
+
+
+
+// ─── CONFIGURACIÓN DE SUPABASE ───
+// Reemplaza estas dos cadenas con tus credenciales reales de Supabase:
+const SUPABASE_URL = "https://bncputlyvmgcsudyolwt.supabase.co"; 
+const SUPABASE_ANON_KEY = "TU_CLAVE_ANON_DE_SUPABASE_AQUÍ";
+
+const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+
 // ─── CURSOR ───
 const cursor = document.getElementById('cursor');
 const cursorRing = document.getElementById('cursor-ring');
@@ -838,6 +1133,6 @@ function nextMonth() {
 }
 
 renderCal();
-</script>
+</script> -->
 </body>
 </html>
