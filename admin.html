@@ -269,14 +269,15 @@ async function cargarCitas() {
     citas.forEach(cita => {
         const fila = document.createElement('tr');
 
-        // Formateamos las columnas basándonos exactamente en los nombres de tu tabla de Supabase
+        // 4TO INNERHTML: Aquí es donde inyectas la estructura responsiva con los datos (data-label)
+        // Modifícalo justo aquí para que te quede con el diseño adaptado al celular:
         fila.innerHTML = `
-            <td>${cita.Cliente_nombre || 'Sin nombre'}</td>
-            <td>${cita.Cliente_telefono || '—'}</td>
-            <td>${cita.servicio || '—'}</td>
-            <td class="destacado">${cita.fecha || '—'}</td>
-            <td><span class="hora-badge">${cita.hora || '—'}</span></td>
-        `;
+            <td data-label="Cliente">${cita.Cliente_nombre || 'Sin nombre'}</td>
+            <td data-label="Teléfono">${cita.Cliente_telefono || '—'}</td>
+            <td data-label="Servicio">${cita.servicio || '—'}</td>
+            <td data-label="Fecha" class="destacado">${cita.fecha || '—'}</td>
+            <td data-label="Hora"><span class="hora-badge">${cita.hora || '—'}</span></td>
+        `; 
 
         tabla.appendChild(fila);
     });
