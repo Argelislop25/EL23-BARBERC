@@ -1089,3 +1089,9 @@ footer {
   .footer-inner { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
 }
+
+.slot.booked {
+  background-color: #1a1a1a; /* O un tono gris muy oscuro */
+  color: #555;
+  border-color: transparent;
+}

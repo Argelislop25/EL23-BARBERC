@@ -748,40 +748,38 @@ function goToStep(n) {
   updateMiniSummary();
   document.querySelector('.booking-body').scrollTop = 0;
 }
-
-// ─── FUNCIÓN INTEGRADA CON SUPABASE ───
 async function nextStep() {
   if (currentStep === totalSteps) {
-    // Capturamos el nombre completo de tus inputs actuales antes de mandar al backend
     const nombreCompleto = (document.getElementById('f-name').value + ' ' + document.getElementById('f-last').value).trim();
-
-    // Insertar los datos de forma asíncrona directamente a la tabla 'Reservas' de Supabase
+    const telefonoCliente = document.getElementById('f-phone').value.trim();
     const { data, error } = await _supabase
-      .from('Reservas') 
+      .from('Reservas')
       .insert([
-        { 
-          Cliente_nombre: nombreCompleto, 
-          servicio: booking.service, 
-          fecha: booking.date, 
-          hora: booking.time 
+        {
+          Cliente_nombre: nombreCompleto,
+          servicio: booking.service,
+          fecha: booking.date,
+          hora: booking.time,
+          Cliente_telefono: telefonoCliente,
+          barbero_nombre: booking.barber
         }
       ]);
-
     if (error) {
       console.error("Error al guardar la cita:", error);
       alert("Hubo un problema guardando tu reserva. Intenta de nuevo.");
-      return; 
+      return; // <-- Este return está bien porque está DENTRO del "if (error)"
     }
 
-    // Si todo sale bien, ejecutamos tu animación visual de éxito original
+    // Animación visual de éxito original
     document.getElementById('booking-body').style.display = 'none';
     document.getElementById('booking-footer').style.display = 'none';
     document.getElementById('booking-success').classList.add('active');
-    return;
+    return; // <-- Este return está bien porque está DENTRO del "if (currentStep === totalSteps)"
   }
-  if (currentStep < totalSteps) goToStep(currentStep + 1);
-}
 
+  if (currentStep < totalSteps) {
+    goToStep(currentStep + 1);
+  }}    
 function prevStep() {
   if (currentStep > 1) goToStep(currentStep - 1);
 }
@@ -849,11 +847,14 @@ function renderCal() {
       el.className = 'cal-day available';
       if (dt.toDateString() === today.toDateString()) el.classList.add('today');
       el.textContent = d;
-      el.addEventListener('click', () => {
+          el.addEventListener('click', () => {
         document.querySelectorAll('.cal-day').forEach(c => c.classList.remove('selected'));
         el.classList.add('selected');
         booking.date = `${d} ${months[calDate.getMonth()]} ${calDate.getFullYear()}`;
         updateMiniSummary();
+        
+        // Ejecutamos la consulta inmediatamente al cambiar de día
+        checkAvailableSlots(booking.date); 
       });
     }
     grid.appendChild(el);
@@ -872,20 +873,20 @@ function nextMonth() {
 renderCal();
 
 
-//---NUEVA FUNCIONES ANANADIDAS---//
-
 async function checkAvailableSlots(selectedDate) {
-  // 1. Buscamos todos los bloques dentro del contenedor slots-grid
   const slots = document.querySelectorAll('.slots-grid .slot');
   
-  // 2. Limpiamos cualquier estado previo antes de consultar
+  // 1. Reiniciamos todos los slots a disponibles
   slots.forEach(slot => {
-    slot.className = 'slot available';
-    const timeText = slot.textContent.trim();
-    slot.setAttribute('onclick', `selectSlot(this, '${timeText}')`);
+    slot.classList.remove('booked');
+    slot.classList.add('available');
+    slot.style.pointerEvents = 'auto'; // Permite clics
+    slot.style.opacity = '1';
   });
 
-  // 3. Consultamos a Supabase qué horarios ya están ocupados para la fecha seleccionada
+  if (!selectedDate) return;
+
+  // 2. Consultamos a Supabase
   const { data: ocupados, error } = await _supabase
     .from('Reservas')
     .select('hora')
@@ -896,243 +897,26 @@ async function checkAvailableSlots(selectedDate) {
     return;
   }
 
-  // 4. Si hay citas registradas, desactivamos únicamente los bloques correspondientes
+  // 3. Desactivamos los bloques ocupados
   if (ocupados && ocupados.length > 0) {
     const horasOcupadas = ocupados.map(reserva => reserva.hora.trim());
 
     slots.forEach(slot => {
       const horaBloque = slot.textContent.trim();
       if (horasOcupadas.includes(horaBloque)) {
-        slot.className = 'slot booked'; // Cambia el estilo visual a desactivado
-        slot.removeAttribute('onclick'); // Remueve la interacción para evitar clics
+        slot.classList.remove('available', 'selected');
+        slot.classList.add('booked'); 
+        
+        // Truco senior: pointer-events evita CUALQUIER clic o evento en el frontend
+        slot.style.pointerEvents = 'none'; 
+        slot.style.opacity = '0.3'; // Lo vuelve opaco visualmente
       }
     });
   }
 }
 
-checkAvailableSlots(booking.date);
 
 
 </script>
-
-<!-- <script>
-
-
-
-// ─── CONFIGURACIÓN DE SUPABASE ───
-// Reemplaza estas dos cadenas con tus credenciales reales de Supabase:
-const SUPABASE_URL = "https://bncputlyvmgcsudyolwt.supabase.co"; 
-const SUPABASE_ANON_KEY = "TU_CLAVE_ANON_DE_SUPABASE_AQUÍ";
-
-const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-
-// ─── CURSOR ───
-const cursor = document.getElementById('cursor');
-const cursorRing = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cursor.style.left = mx + 'px';
-  cursor.style.top = my + 'px';
-});
-
-function animateRing() {
-  rx += (mx - rx) * 0.12;
-  ry += (my - ry) * 0.12;
-  cursorRing.style.left = rx + 'px';
-  cursorRing.style.top = ry + 'px';
-  requestAnimationFrame(animateRing);
-}
-animateRing();
-
-document.querySelectorAll('a, button, .service-card, .barber-card, .service-option, .barber-option, .slot, .cal-day').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
-    cursorRing.style.width = '64px';
-    cursorRing.style.height = '64px';
-  });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-    cursorRing.style.width = '40px';
-    cursorRing.style.height = '40px';
-  });
-});
-
-// ─── NAV SCROLL ───
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-// ─── SCROLL REVEAL ───
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-}, { threshold: 0.1 });
-revealEls.forEach(el => io.observe(el));
-
-// ─── BOOKING STATE ───
-let currentStep = 1;
-const totalSteps = 5;
-const booking = { service: '', price: '', duration: '', barber: '', date: '', time: '', name: '', email: '' };
-
-function openBooking() {
-  document.getElementById('booking-overlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeBooking() {
-  document.getElementById('booking-overlay').classList.remove('active');
-  document.body.style.overflow = '';
-  // Reset after close
-  setTimeout(() => {
-    currentStep = 1;
-    Object.keys(booking).forEach(k => booking[k] = '');
-    document.querySelectorAll('.step-panel').forEach((p,i) => p.classList.toggle('active', i===0));
-    document.querySelectorAll('.booking-step').forEach((s,i) => {
-      s.classList.toggle('active', i===0);
-      s.classList.remove('done');
-    });
-    document.getElementById('booking-body').style.display = '';
-    document.getElementById('booking-success').classList.remove('active');
-    document.getElementById('booking-footer').style.display = '';
-    document.getElementById('btn-back').style.display = 'none';
-    updateMiniSummary();
-    // unselect all options
-    document.querySelectorAll('.service-option, .barber-option, .slot, .cal-day').forEach(el => el.classList.remove('selected'));
-  }, 400);
-}
-function handleOverlayClick(e) {
-  if (e.target === document.getElementById('booking-overlay')) closeBooking();
-}
-
-function goToStep(n) {
-  currentStep = n;
-  document.querySelectorAll('.step-panel').forEach((p, i) => p.classList.toggle('active', i === n - 1));
-  document.querySelectorAll('.booking-step').forEach((s, i) => {
-    s.classList.remove('active', 'done');
-    if (i === n - 1) s.classList.add('active');
-    else if (i < n - 1) s.classList.add('done');
-  });
-  document.getElementById('btn-back').style.display = n > 1 ? 'inline-flex' : 'none';
-  document.getElementById('btn-next').textContent = n === totalSteps ? 'Confirmar' : 'Continuar';
-  if (n === totalSteps) {
-    // populate summary
-    document.getElementById('c-service').textContent = booking.service || '—';
-    document.getElementById('c-barber').textContent = booking.barber || '—';
-    document.getElementById('c-date').textContent = booking.date || '—';
-    document.getElementById('c-time').textContent = booking.time || '—';
-    document.getElementById('c-total').textContent = booking.price || '—';
-    document.getElementById('c-duration').textContent = booking.duration || '—';
-    const name = document.getElementById('f-name').value + ' ' + document.getElementById('f-last').value;
-    document.getElementById('c-client').textContent = name.trim() || '—';
-    // rebuild next button with SVG
-    const btn = document.getElementById('btn-next');
-    btn.innerHTML = 'Confirmar <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
-  }
-  updateMiniSummary();
-  document.querySelector('.booking-body').scrollTop = 0;
-}
-
-function nextStep() {
-  if (currentStep === totalSteps) {
-    // Submit
-    document.getElementById('booking-body').style.display = 'none';
-    document.getElementById('booking-footer').style.display = 'none';
-    document.getElementById('booking-success').classList.add('active');
-    return;
-  }
-  if (currentStep < totalSteps) goToStep(currentStep + 1);
-}
-function prevStep() {
-  if (currentStep > 1) goToStep(currentStep - 1);
-}
-
-function updateMiniSummary() {
-  const svc = document.getElementById('mini-service');
-  const meta = document.getElementById('mini-meta');
-  svc.textContent = booking.service || 'Elige tu servicio';
-  meta.textContent = `Paso ${currentStep} de ${totalSteps}` + (booking.price ? ` · ${booking.price}` : '');
-}
-
-// Service selection
-function selectService(btn, name, price, duration) {
-  document.querySelectorAll('.service-option').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-  booking.service = name; booking.price = price; booking.duration = duration;
-  updateMiniSummary();
-  setTimeout(() => goToStep(2), 300);
-}
-
-// Barber selection
-function selectBarber(btn, name) {
-  document.querySelectorAll('.barber-option').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-  booking.barber = name;
-  updateMiniSummary();
-  setTimeout(() => goToStep(3), 300);
-}
-
-// Slot selection
-function selectSlot(el, time) {
-  document.querySelectorAll('.slot.available').forEach(s => s.classList.remove('selected'));
-  el.classList.add('selected');
-  booking.time = time;
-  updateMiniSummary();
-}
-
-// ─── MINI CALENDAR ───
-let calDate = new Date(2025, 5, 1); // June 2025
-
-function renderCal() {
-  const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-  document.getElementById('cal-month-label').textContent = `${months[calDate.getMonth()]} ${calDate.getFullYear()}`;
-  const grid = document.getElementById('cal-days');
-  grid.innerHTML = '';
-  const firstDay = new Date(calDate.getFullYear(), calDate.getMonth(), 1).getDay();
-  const offset = firstDay === 0 ? 6 : firstDay - 1; // Mon-based
-  const daysInMonth = new Date(calDate.getFullYear(), calDate.getMonth() + 1, 0).getDate();
-  const today = new Date();
-  for (let i = 0; i < offset; i++) {
-    const d = document.createElement('div');
-    d.className = 'cal-day empty';
-    grid.appendChild(d);
-  }
-  for (let d = 1; d <= daysInMonth; d++) {
-    const el = document.createElement('div');
-    const dt = new Date(calDate.getFullYear(), calDate.getMonth(), d);
-    const isPast = dt < new Date(today.getFullYear(), today.getMonth(), today.getDate());
-    const isSun = dt.getDay() === 0;
-    if (isPast || isSun) {
-      el.className = 'cal-day';
-      el.style.opacity = '0.2';
-      el.textContent = d;
-    } else {
-      el.className = 'cal-day available';
-      if (dt.toDateString() === today.toDateString()) el.classList.add('today');
-      el.textContent = d;
-      el.addEventListener('click', () => {
-        document.querySelectorAll('.cal-day').forEach(c => c.classList.remove('selected'));
-        el.classList.add('selected');
-        booking.date = `${d} ${months[calDate.getMonth()]} ${calDate.getFullYear()}`;
-        updateMiniSummary();
-      });
-    }
-    grid.appendChild(el);
-  }
-}
-
-function prevMonth() {
-  calDate = new Date(calDate.getFullYear(), calDate.getMonth() - 1, 1);
-  renderCal();
-}
-function nextMonth() {
-  calDate = new Date(calDate.getFullYear(), calDate.getMonth() + 1, 1);
-  renderCal();
-}
-
-renderCal();
-</script> -->
 </body>
 </html>
