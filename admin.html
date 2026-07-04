@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El 23 Barber Shop - Panel de Citas</title>
+    
+    <!-- SDK de Supabase para conectar la base de datos más adelante -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+    <style>
+        /* ─── VARIABLES DE COLORES ─── */
+        :root {
+            --bg-principal: #0a0a0a;     /* Negro profundo para el fondo */
+            --bg-tarjeta: #141414;       /* Gris muy oscuro para contenedores */
+            --rojo-vino: #7a1c22;        /* Rojo vino elegante para acentos */
+            --rojo-vino-hover: #9c242b;  /* Rojo vino más brillante para interacciones */
+            --texto-claro: #f5f5f5;      /* Blanco hueso para lectura cómoda */
+            --texto-mutado: #8a8a8a;     /* Gris claro para subtítulos y th */
+            --borde: #222222;            /* Gris oscuro para líneas divisorias */
+        }
+
+        /* ─── ESTILOS GENERALES ─── */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-claro);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .dashboard-container {
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        /* ─── ENCABEZADO ─── */
+        header {
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--rojo-vino);
+            padding-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        h1 span {
+            color: var(--rojo-vino);
+        }
+
+        .subtitle {
+            color: var(--texto-mutado);
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        /* Botón para refrescar citas manualmente */
+        .btn-refresh {
+            background-color: var(--rojo-vino);
+            color: var(--texto-claro);
+            border: none;
+            padding: 10px 18px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .btn-refresh:hover {
+            background-color: var(--rojo-vino-hover);
+        }
+
+        /* ─── CONTENEDOR DE LA TABLA ─── */
+        .table-responsive {
+            background-color: var(--bg-tarjeta);
+            border: 1px solid var(--borde);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        /* Cabecera de la tabla */
+        th {
+            background-color: #1a1a1a;
+            color: var(--texto-mutado);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 16px;
+            border-bottom: 2px solid var(--borde);
+        }
+
+        /* Filas y Celdas */
+        td {
+            padding: 16px;
+            border-bottom: 1px solid var(--borde);
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Efecto hover en las filas */
+        tr:hover td {
+            background-color: #1c1c1c;
+            cursor: default;
+        }
+
+        /* Estilo especial para destacar la fecha y hora */
+        .destacado {
+            color: var(--texto-claro);
+            font-weight: 600;
+        }
+        
+        .hora-badge {
+            display: inline-block;
+            background-color: #222;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--rojo-vino);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- Encabezado del Panel -->
+        <header>
+            <div>
+                <h1>El 23 <span>Barber Shop</span></h1>
+                <p class="subtitle">Panel de Control administrativo — Gestión de citas en tiempo real</p>
+            </div>
+            <button class="btn-refresh" id="btn-actualizar">Actualizar Lista</button>
+        </header>
+
+        <!-- Tabla de Reservaciones -->
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Teléfono</th>
+                        <th>Servicio</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-citas">
+                    <!-- Ejemplo visual estático de cómo se verá (JavaScript reemplazará esto) -->
+                    <tr>
+                        <td>Cliente de Prueba</td>
+                        <td>555-0123</td>
+                        <td>Corte Regular</td>
+                        <td class="destacado">15 Julio 2026</td>
+                        <td><span class="hora-badge">10:00 AM</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+      // ─── CONFIGURACIÓN DE SUPABASE ───
+    const SUPABASE_URL = "https://bncputlyvmgcsudyolwt.supabase.co"; 
+    const SUPABASE_ANON_KEY = "sb_publishable_K5CuUAe9H6JirCgdq2pWiw_L6AKe9at";
+
+    const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// ─── FUNCIÓN PARA TRAER Y RENDERIZAR LAS CITAS ───
+async function cargarCitas() {
+    const tabla = document.getElementById('tabla-citas');
+    
+    // 1. Consultamos los datos a Supabase
+    const { data: citas, error } = await _supabase
+        .from('Reservas')
+        .select('*')
+        .order('created_at', { ascending: false }); // Ordena por fecha de creación (más recientes primero)
+
+    if (error) {
+        console.error("Error al obtener las reservaciones:", error);
+        tabla.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--rojo-vino);">Error al cargar los datos.</td></tr>`;
+        return;
+    }
+
+    // 2. Limpiamos la tabla (adiós a la fila de prueba estática)
+    tabla.innerHTML = '';
+
+    // 3. Si no hay citas registradas en la base de datos
+    if (!citas || citas.length === 0) {
+        tabla.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--texto-mutado);">No hay citas registradas aún.</td></tr>`;
+        return;
+    }
+
+    // 4. Recorremos cada cita e inyectamos las filas dinámicamente
+    citas.forEach(cita => {
+        const fila = document.createElement('tr');
+
+        // Formateamos las columnas basándonos exactamente en los nombres de tu tabla de Supabase
+        fila.innerHTML = `
+            <td>${cita.Cliente_nombre || 'Sin nombre'}</td>
+            <td>${cita.Cliente_telefono || '—'}</td>
+            <td>${cita.servicio || '—'}</td>
+            <td class="destacado">${cita.fecha || '—'}</td>
+            <td><span class="hora-badge">${cita.hora || '—'}</span></td>
+        `;
+
+        tabla.appendChild(fila);
+    });
+}
+
+// Ejecutar la carga automática al abrir el panel
+document.addEventListener('DOMContentLoaded', cargarCitas);
+
+// Escuchar el clic del botón de actualización manual
+document.getElementById('btn-actualizar').addEventListener('click', () => {
+    // Cambiamos el texto temporalmente para dar feedback visual
+    const btn = document.getElementById('btn-actualizar');
+    btn.textContent = "Actualizando...";
+    
+    cargarCitas().then(() => {
+        btn.textContent = "Actualizar Lista";
+    });
+});
+        </script>
+</body>
+</html>

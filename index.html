@@ -85,7 +85,7 @@
     </div>
     <div class="service-card reveal reveal-delay-1">
       <div class="service-num">02</div>
-      <h3 class="service-name">COTE CLASICO CON FACIAL</h3>
+      <h3 class="service-name">CORTE CLASICO CON FACIAL</h3>
       <p class="service-desc">: Un servicio integral diseñado para el cuidado masculino
         . Combina un corte de cabello de alta técnica con el perfilado
          estructurado de la barba, complementado con un 
@@ -354,14 +354,14 @@
       <h4>Servicios</h4>
       <ul>
         <li><a href="#">Corte Premium</a></li>
-        <li><a href="#">Ritual de Barba</a></li>
-        <li><a href="#">Ritual Completo</a></li>
-        <li><a href="#">Coloración</a></li>
-        <li><a href="#">Membresía VIP</a></li>
+        <li><a href="#">Corte Clasico con Facial</a></li>
+        <li><a href="#">Recorte Premium</a></li>
+        <li><a href="#">NO DISPONIBLE</a></li>
+        <li><a href="#">NO DISPONIBLE</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>El 2</h4>
+      <h4>DURAN 23</h4>
       <ul>
         <li><a href="#">Nuestro equipo</a></li>
         <li><a href="#">Experience Score</a></li>
@@ -435,23 +435,23 @@
             <div class="so-name">CORTE REGULAR</div>
             <div class="so-meta"><span class="so-price">$700</span><span>45 min</span></div>
           </button>
-          <button class="service-option" onclick="selectService(this, 'Ritual de Barba', '$1000', '40 min')">
-            <div class="so-name">COTE CLASICO CON FACIAL</div>
+          <button class="service-option" onclick="selectService(this, 'Corte Clasico con Facial', '$1000', '40 min')">
+            <div class="so-name">Corte Clasico con Facial</div>
             <div class="so-meta"><span class="so-price">$1000</span><span>40 min</span></div>
           </button>
-          <button class="service-option" onclick="selectService(this, 'Ritual Completo', '$1500', '90 min')">
-            <div class="so-name">RECORTE PREMIUM</div>
+          <button class="service-option" onclick="selectService(this, 'Recorte Premium', '$1500', '90 min')">
+            <div class="so-name">Recorte Premium</div>
             <div class="so-meta"><span class="so-price">$1500</span><span>90 min</span></div>
           </button>
-          <button class="service-option" onclick="selectService(this, 'Coloración', 'Desde $00', '60–90 min')">
+          <button class="service-option" onclick="selectService(this, 'NO DISPONIBLE', 'Desde $00', '60–90 min')">
             <div class="so-name">🎨</div>
             <div class="so-meta"><span class="so-price">Desde $0</span><span>60–90 min</span></div>
           </button>
-          <button class="service-option" onclick="selectService(this, 'Tratamiento Capilar', '$00', '50 min')">
+          <button class="service-option" onclick="selectService(this, 'NO DISPONIBLE', '$00', '50 min')">
             <div class="so-name">💆</div>
             <div class="so-meta"><span class="so-price">$0</span><span>50 min</span></div>
           </button>
-          <button class="service-option" onclick="selectService(this, 'Membresía VIP', '$00/mes', 'Ilimitado')">
+          <button class="service-option" onclick="selectService(this, 'NO DISPONIBLE', '$00/mes', 'Ilimitado')">
             <div class="so-name">💎</div>
             <div class="so-meta"><span class="so-price">$0/mes</span><span>Exclusivo</span></div>
           </button>
@@ -838,7 +838,7 @@ function renderCal() {
     const el = document.createElement('div');
     const dt = new Date(calDate.getFullYear(), calDate.getMonth(), d);
     const isPast = dt < new Date(today.getFullYear(), today.getMonth(), today.getDate());
-    const isSun = dt.getDay() === 0;
+    const isSun = dt.getDay() === 1;
     if (isPast || isSun) {
       el.className = 'cal-day';
       el.style.opacity = '0.2';
